@@ -12,7 +12,7 @@ jobs:
     name: Build and deploy admin portal
     runs-on: ubuntu-latest
     env:
-      working-directory: "admin"
+      working-directory: "/"
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
