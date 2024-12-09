@@ -1,0 +1,24 @@
+{
+  "projects": {
+    "default": "test-generator-new-dev",
+    "prod": "test-generator-new-dev-prod"
+  },
+  "targets": {
+    "test-generator-new-dev": {
+      "hosting": {
+        "admin-dev": [
+          "test-generator-new-dev"
+        ]
+      }
+    },
+    "test-generator-new-dev-prod": {
+      "hosting": {
+        "admin-prod": [
+          "testname-admin-prod"
+        ]
+      }
+    }
+  },
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
