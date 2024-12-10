@@ -1,0 +1,24 @@
+{
+  "projects": {
+    "default": "dalibor-new-test-dev",
+    "prod": "dalibor-new-test-dev-prod"
+  },
+  "targets": {
+    "dalibor-new-test-dev": {
+      "hosting": {
+        "admin-dev": [
+          "name-admin"
+        ]
+      }
+    },
+    "dalibor-new-test-dev-prod": {
+      "hosting": {
+        "admin-prod": [
+          "name-admin-prod"
+        ]
+      }
+    }
+  },
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
