@@ -6,7 +6,6 @@ on:
     paths:
       - "admin/**"
 
-
 jobs:
   build-and-deploy-admin-portal:
     environment: development
