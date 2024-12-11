@@ -1,20 +1,10 @@
 {
-  "projects": {
-    "default": "new-dalibor-test-dev",
-    "prod": "new-dalibor-test-dev-prod"
-  },
+  "projects": {},
   "targets": {
     "new-dalibor-test-dev": {
       "hosting": {
         "admin-dev": [
           "projectname-admin"
-        ]
-      }
-    },
-    "new-dalibor-test-dev-prod": {
-      "hosting": {
-        "admin-prod": [
-          "projectname-admin-prod"
         ]
       }
     }
