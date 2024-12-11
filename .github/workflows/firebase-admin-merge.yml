@@ -32,6 +32,7 @@ jobs:
         env:
           VITE_FIREBASE_ENV: 'DEV'
 
+      # Specify the root directory for the firebase.json file using entryPoint
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
@@ -39,4 +40,5 @@ jobs:
           channelId: live
           projectId: dalibor-new-test-dev
           target: admin-dev
-          entryPoint: ${{ env.working-directory }}
+          entryPoint: "/"
+          debug: true
