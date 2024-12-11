@@ -4,7 +4,7 @@ import { FC } from 'react';
 export const HomePage: FC = () => {
   return (
     <Box display={'flex'} justifyContent={'center'} mt={5}>
-      <Typography variant="h4">Welcome to AIAB Admin Portal7</Typography>
+      <Typography variant="h4">Welcome to AIAB Admin Portal17</Typography>
     </Box>
   );
 };
