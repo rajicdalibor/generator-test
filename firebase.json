@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "admin-dev",
-      "public": "dist",
+      "public": "admin/dist",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -13,7 +13,7 @@
     },
     {
       "target": "admin-prod",
-      "public": "dist",
+      "public": "admin/dist",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
