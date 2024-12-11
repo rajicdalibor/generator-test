@@ -13,13 +13,6 @@
           "name-admin-prod"
         ]
       }
-    },
-    "dalibor-new-test-dev-prod": {
-      "hosting": {
-        "admin-prod": [
-          "name-admin-prod"
-        ]
-      }
     }
   },
   "etags": {},
