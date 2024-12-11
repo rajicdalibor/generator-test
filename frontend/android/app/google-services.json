@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "840621458838",
+    "project_id": "new-dalibor-test-dev",
+    "storage_bucket": "new-dalibor-test-dev.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840621458838:android:eba5efb6bee3131ca949b7",
+        "android_client_info": {
+          "package_name": "test.project.fluttername"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjZY-KPA9XXwVON5dq5QbzmWlq4Yw3N1o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
