@@ -1,0 +1,106 @@
+name: Build and Format check
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+concurrency:
+  group: ci-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-changes:
+    name: Check for the file changes
+    runs-on: ubuntu-latest
+    outputs:
+      frontend: ${{ steps.filter.outputs.frontend }}
+      backend: ${{ steps.filter.outputs.backend }}
+      admin: ${{ steps.filter.outputs.admin }}
+    steps:
+      - name: Checkout github repo
+        uses: actions/checkout@v4
+
+      - name: Determine location of file change
+        uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            admin:
+              - 'admin/src/**'
+            backend:
+              - 'backend/**'
+            frontend:
+              - 'frontend/!(assets/**)/**'
+              - 'frontend/!(android/**)/**'
+              - 'frontend/!(ios/**)/**'
+
+  admin-node-verify:
+    if: ${{ needs.check-changes.outputs.admin == 'true' }}
+    name: Verify admin portal
+    runs-on: ubuntu-latest
+    needs: [check-changes]
+    env:
+      working-directory: "admin"
+    steps:
+      - name: Checkout github repo
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ${{ env.working-directory }}/.nvmrc
+      - name: Install dependencies
+        working-directory: ${{ env.working-directory }}
+        run: npm ci
+      - name: Check format
+        working-directory: ${{ env.working-directory }}
+        run: npm run lint
+      - name: Check build
+        working-directory: ${{ env.working-directory }}
+        run: npm run build
+
+  backend-node-verify:
+    if: ${{ needs.check-changes.outputs.backend == 'true' }}
+    name: Verify backend
+    runs-on: ubuntu-latest
+    needs: [check-changes]
+    env:
+      working-directory: "backend/functions"
+    steps:
+      - name: Checkout github repo
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ${{ env.working-directory }}/.nvmrc
+      - name: Install dependencies
+        working-directory: ${{ env.working-directory }}
+        run: npm ci
+      - name: Check format
+        working-directory: ${{ env.working-directory }}
+        run: npm run format:check
+      - name: Check build
+        working-directory: ${{ env.working-directory }}
+        run: npm run build
+
+  flutter-verify:
+    if: ${{ needs.check-changes.outputs.frontend == 'true' }}
+    name: Verify frontend
+    runs-on: macos-latest
+    needs: [check-changes]
+    env:
+      working-directory: "frontend"
+    steps:
+      - name: Checkout github repo
+        uses: actions/checkout@v4
+      - name: Setup flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.24.3
+          channel: stable
+      - name: Install dependencies
+        working-directory: ${{ env.working-directory }}
+        run: flutter pub get
+      - name: Flutter analyze
+        working-directory: ${{ env.working-directory }}
+        run: flutter analyze --no-pub --no-current-package lib
