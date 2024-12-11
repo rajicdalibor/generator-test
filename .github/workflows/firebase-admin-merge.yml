@@ -39,4 +39,3 @@ jobs:
           channelId: live
           projectId: tttttt-dev
           target: admin-dev
-          entryPoint: ${{ env.working-directory }}
