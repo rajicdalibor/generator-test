@@ -1,5 +1,24 @@
 {
   "projects": {
-    "default": "test-project-daliborr-dev"
-  }
+    "default": "test-project-daliborr-dev",
+    "prod": "test-project-daliborr-dev-prod"
+  },
+  "targets": {
+    "test-project-daliborr-dev": {
+      "hosting": {
+        "admin-dev": [
+          "test-project-daliborr-dev"
+        ]
+      }
+    },
+    "test-project-daliborr-dev-prod": {
+      "hosting": {
+        "admin-prod": [
+          "aadd-admin-prod"
+        ]
+      }
+    }
+  },
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
