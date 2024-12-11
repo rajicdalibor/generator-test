@@ -12,7 +12,7 @@ jobs:
     name: Build and deploy admin portal
     runs-on: ubuntu-latest
     env:
-      working-directory: "/"
+      working-directory: "admin"
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -20,19 +20,18 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version-file: admin/.nvmrc
+          node-version-file: ${{ env.working-directory }}/.nvmrc
 
       - name: Install dependencies
-        working-directory: "admin"
+        working-directory: ${{ env.working-directory }}
         run: npm ci
 
       - name: Build web app
-        working-directory: "admin"
+        working-directory: ${{ env.working-directory }}
         run: npm run build
         env:
           VITE_FIREBASE_ENV: 'DEV'
 
-      # Specify the root directory for the firebase.json file using entryPoint
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
@@ -41,4 +40,4 @@ jobs:
           projectId: dalibor-new-test-dev
           target: admin-dev
           entryPoint: "/"
-          debug: true
+          working-directory: "/"
