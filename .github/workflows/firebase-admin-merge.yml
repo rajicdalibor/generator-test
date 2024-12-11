@@ -39,4 +39,3 @@ jobs:
           channelId: live
           projectId: test-project-daliborr-dev
           target: admin-dev
-          entryPoint: ${{ env.working-directory }}
