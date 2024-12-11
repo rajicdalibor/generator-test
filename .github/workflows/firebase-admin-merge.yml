@@ -6,6 +6,7 @@ on:
     paths:
       - "admin/**"
 
+
 jobs:
   build-and-deploy-admin-portal:
     environment: development
@@ -39,5 +40,4 @@ jobs:
           channelId: live
           projectId: dalibor-new-test-dev
           target: admin-dev
-          entryPoint: "/"
-          working-directory: "/"
+          entryPoint: "."
