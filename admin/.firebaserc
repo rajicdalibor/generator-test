@@ -11,6 +11,13 @@
         ]
       }
     },
+    "new-dalibor-test-dev-prod": {
+      "hosting": {
+        "admin-prod": [
+          "projectname-admin-prod"
+        ]
+      }
+    }
   },
   "etags": {},
   "dataconnectEmulatorConfig": {}
