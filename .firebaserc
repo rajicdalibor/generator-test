@@ -1,0 +1,24 @@
+{
+  "projects": {
+    "default": "test-ddddddd-dev",
+    "prod": "uiuiuiuiu-dev-prod"
+  },
+  "targets": {
+    "uiuiuiuiu-dev": {
+      "hosting": {
+        "admin-dev": [
+          "uiuiuiuiu-dev"
+        ]
+      }
+    },
+    "uiuiuiuiu-dev-prod": {
+      "hosting": {
+        "admin-prod": [
+          "sdasd-admin-prod"
+        ]
+      }
+    }
+  },
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
