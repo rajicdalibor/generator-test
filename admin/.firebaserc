@@ -7,7 +7,7 @@
     "new-dalibor-test-dev": {
       "hosting": {
         "admin-dev": [
-          "projectname-admin"
+          "new-dalibor-test-dev"
         ]
       }
     },

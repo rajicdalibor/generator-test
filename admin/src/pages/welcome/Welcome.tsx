@@ -130,7 +130,7 @@ export const WelcomePage: FC = () => {
       minHeight={'100vh'}>
       <Item>
         <Typography variant="h2" mb={2}>
-          Welcome to AIAB Admin Portal3
+          Welcome to AIAB Admin Portal31
         </Typography>
         {firebaseEnv === 'DEV' && (
           <Typography variant="h6" marginTop={1} marginBottom={1} bgcolor={amber[500]}>
